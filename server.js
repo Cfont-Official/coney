@@ -2,7 +2,7 @@ import express from "express";
 import fetch from "node-fetch";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -61,3 +61,10 @@ app.get("/search", async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`✅ Running on port ${PORT}`));
+// Graceful 404 & error handling
+app.use((req, res) => res.status(404).send("Page not found."));
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).send("Internal server error.");
+});
+
