@@ -1,0 +1,17 @@
+{
+  "name": "ddg-proxy",
+  "version": "1.0.0",
+  "description": "DuckDuckGo proxy with user-selectable SafeSearch (Render-ready)",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "node-fetch": "^3.4.0"
+  }
+}
